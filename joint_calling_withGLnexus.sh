@@ -22,7 +22,7 @@ mkdir -p "${OUTPUT_DIR}/population"
 mkdir -p "${OUTPUT_DIR}/population/log"
 
 # Cohort name (modify as needed)
-corhotname="Chinese.WGS1263"  
+corhotname="Chinese"  
 
 # Run GLnexus for joint genotyping
 $singularity exec \
