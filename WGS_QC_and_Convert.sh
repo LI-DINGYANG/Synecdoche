@@ -5,12 +5,6 @@
 #BSUB -q q6240                  # Queue name
 #BSUB -n 30                     # Number of CPU cores
 
-# Normalize VCF file (left-align indels, split multiallelic sites)
-bcftools norm -f /path/to/hg38.fa \
-  -m -any \
-  -Oz \
-  -o Chinese.WGS1263.norm.vcf.gz \
-  Chinese.WGS1263.vcf.gz
 
 # Process each chromosome in parallel
 for i in chr{1..22}
