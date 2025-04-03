@@ -77,17 +77,17 @@ plink --bfile ASA.Chinese.het.genome.pca.QC --recode vcf --keep-allele-order --o
 bcftools sort ASA.Chinese.QC.vcf -Ov -o ASA.Chinese.QC.Sorted.vcf 
 bgzip -@ 30 ASA.Chinese.QC.Sorted.vcf && tabix -p vcf ASA.Chinese.QC.Sorted.vcf.gz
 
-#!/bin/bash
-cd /path/to/working/directory
+
+
 for chr in chr{1..22}
 do
-  bcftools view -r $chr --output-type z --output ./split/ASA.Chinese.before_phasing.${chr}.vcf.gz ASA.Chinese.QC.Sorted.vcf.gz
+  bcftools view -r $chr --output-type z --output ASA.Chinese.before_phasing.${chr}.vcf.gz ASA.Chinese.QC.Sorted.vcf.gz
 done
 
-cd /path/to/working/directory
+
 for chr in {1..22}
 do
-/path/to/eagle --vcf=./posudo_gwas/split/ASA.Chinese.before_phasing.${chr}.vcf.gz \
---geneticMapFile=/path/to/genetic_map_hg38_withX.txt.gz --numThreads=5 --outPrefix ./phasing/ASA.Chinese.chr${chrom}.phased \
+/path/to/eagle --vcf=ASA.Chinese.before_phasing.${chr}.vcf.gz \
+--geneticMapFile=/path/to/genetic_map_hg38_withX.txt.gz --numThreads=5 --outPrefix ASA.Chinese.chr${chrom}.phased \
 --vcfOutFormat z &
 done
