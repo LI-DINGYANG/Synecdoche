@@ -88,6 +88,6 @@ done
 for chr in {1..22}
 do
 /path/to/eagle --vcf=ASA.Chinese.before_phasing.${chr}.vcf.gz \
---geneticMapFile=/path/to/genetic_map_hg38_withX.txt.gz --numThreads=5 --outPrefix ASA.Chinese.chr${chrom}.phased \
+--geneticMapFile=/path/to/genetic_map_hg38_withX.txt.gz --numThreads=5 --outPrefix ASA.Chinese.chr${chr}.phased \
 --vcfOutFormat z &
 done
