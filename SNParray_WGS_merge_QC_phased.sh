@@ -71,7 +71,7 @@ plink --bfile ASA.Chinese.het.genome.pca --genome --min 0.185 --out filtered_pih
 awk '{$1=$1}1' filtered_pihat_min0.185.genome > temp.txt && mv temp.txt filtered_pihat_min0.185.genome
 awk '{print $1, $2, $3, $4, $5, $6, $7, $8, $9, $10}' filtered_pihat_min0.185.genome > pihat.txt
 
-plink --bfile ASA.Chinese.het.genome.pca --geno 0.05 --maf 0.01 --hwe 0.00001 --make-bed --out ASA.Chinese.het.genome.pca.QC
+plink --bfile ASA.Chinese.het.genome.pca --geno 0.05 --maf 0.01 --hwe 0.00001 --keep-allele-order --make-bed --out ASA.Chinese.het.genome.pca.QC
 
 plink --bfile ASA.Chinese.het.genome.pca.QC --recode vcf --keep-allele-order --output-chr chrMT --out ASA.Chinese.QC
 bcftools sort ASA.Chinese.QC.vcf -Ov -o ASA.Chinese.QC.Sorted.vcf 
